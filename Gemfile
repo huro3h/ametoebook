@@ -54,9 +54,17 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 ### additional_gem ###
 gem 'activeadmin', github: 'activeadmin'
-gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'devise'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+
 
 group :development, :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'guard-livereload', '~> 2.5', require: false
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'rspec-rails'
   gem 'rubocop', require: false
 end
