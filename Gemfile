@@ -56,12 +56,14 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+# for log collection
+gem 'fluentd'
 
 
 group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'factory_girl_rails'
+  # gem 'factory_girl_rails'
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'pry-rails'
   gem 'pry-byebug'

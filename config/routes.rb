@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   # get 'articles/index'
+  root "articles#index"
   resources :articles
 
   devise_for :admin_users, ActiveAdmin::Devise.config
