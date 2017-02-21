@@ -112,6 +112,8 @@ GEM
     eventmachine (1.2.2)
     execjs (2.7.0)
     ffi (1.9.14)
+    fluent-logger (0.6.2)
+      msgpack (>= 0.5.6, < 2)
     fluentd (0.14.13)
       cool.io (~> 1.4.5)
       http_parser.rb (>= 0.5.1, < 0.7.0)
@@ -168,6 +170,7 @@ GEM
     lumberjack (1.0.11)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    marked-rails (0.3.2.0)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -326,12 +329,14 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   database_cleaner
   devise
+  fluent-logger
   fluentd
   guard-livereload (~> 2.5)
   inherited_resources!
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
+  marked-rails
   pry-byebug
   pry-rails
   puma (~> 3.0)

@@ -58,6 +58,9 @@ gem 'devise'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 # for log collection
 gem 'fluentd'
+gem 'fluent-logger'
+# for markdown notation using .js
+gem 'marked-rails'
 
 
 group :development, :test do
