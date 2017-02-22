@@ -21,3 +21,4 @@ describe Article do
   it '重複したタイトルなら無効な状態であること' do
   end
 end
+
