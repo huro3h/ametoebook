@@ -47,6 +47,9 @@ gem 'fluent-logger'
 # for markdown notation using .js
 gem 'marked-rails'
 
+group :development do
+  gem 'capistrano-rails'
+end
 
 group :development, :test do
   gem 'capybara'
