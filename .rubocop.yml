@@ -13,6 +13,9 @@ AsciiComments:
 Style/Documentation:
   Enabled: false
 
+StringLiterals:
+  EnforcedStyle: false
+
 ClassAndModuleChildren:
   EnforcedStyle: compact
 
