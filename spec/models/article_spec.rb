@@ -30,8 +30,23 @@ describe Article do
       title: "ああああ",
       theme: "雑談"
       )
-     article.valid?
-     expect(article.errors[:title]).to include("has already been taken")
+    article.valid?
+    expect(article.errors[:title]).to include("has already been taken")
+  end
+
+  it '同じ日に複数件投稿できること' do
+    article1 = Article.create(
+      title: "ああああ",
+      theme: "日記",
+      writing_date: "2017-02-28"
+      )
+
+    article2 = Article.new(
+      title: "いいいい",
+      theme: "日記",
+      writing_date: "2017-02-28"
+      )
+    expect(article2).to be_valid
   end
 end
 
