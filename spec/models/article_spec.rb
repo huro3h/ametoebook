@@ -41,12 +41,40 @@ describe Article do
       writing_date: "2017-02-28"
       )
 
-    article2 = Article.new(
+    article2 = Article.create(
       title: "いいいい",
       theme: "日記",
       writing_date: "2017-02-28"
       )
     expect(article2).to be_valid
+  end
+
+  it 'マッチした年月日をソート済みの配列として返すこと' do
+    article1 = Article.create(
+      title: "ああああ",
+      theme: "日記",
+      writing_date: "2017-02-28"
+      )
+
+    article2 = Article.create(
+      title: "いいいい",
+      theme: "日記",
+      writing_date: "2017-02-16"
+      )
+
+    article3 = Article.create(
+      title: "あ",
+      theme: "日記",
+      writing_date: "2017-02-25"
+      )
+
+    article4 = Article.create(
+      title: "q",
+      theme: "日記",
+      writing_date: "2017-01-23"
+      )
+    expect(Article.by_calendar("2017-02")).to eq ["2017-02-16",
+      "2017-02-25", "2017-02-28"]
   end
 end
 
