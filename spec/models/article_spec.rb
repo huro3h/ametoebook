@@ -73,7 +73,7 @@ describe Article do
       theme: "日記",
       writing_date: "2017-01-23"
       )
-    expect(Article.by_calendar("a").pluck(:title)).to eq ["aas",
+    expect(Article.by_title("a").pluck(:title)).to eq ["aas",
      "abbb", "avv"]
   end
 end
