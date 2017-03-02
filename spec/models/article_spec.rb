@@ -41,12 +41,40 @@ describe Article do
       writing_date: "2017-02-28"
       )
 
-    article2 = Article.new(
+    article2 = Article.create(
       title: "いいいい",
       theme: "日記",
       writing_date: "2017-02-28"
       )
     expect(article2).to be_valid
+  end
+
+  it 'マッチしたtitleをソート済みの配列として返すこと' do
+    article1 = Article.create(
+      title: "aas",
+      theme: "日記",
+      writing_date: "2017-02-28"
+      )
+
+    article2 = Article.create(
+      title: "abbb",
+      theme: "日記",
+      writing_date: "2017-02-16"
+      )
+
+    article3 = Article.create(
+      title: "avv",
+      theme: "日記",
+      writing_date: "2017-02-25"
+      )
+
+    article4 = Article.create(
+      title: "cccc",
+      theme: "日記",
+      writing_date: "2017-01-23"
+      )
+    expect(Article.by_title("a").pluck(:title)).to eq ["aas",
+     "abbb", "avv"]
   end
 end
 
