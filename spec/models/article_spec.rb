@@ -76,5 +76,32 @@ describe Article do
     expect(Article.by_title("a").pluck(:title)).to eq ["aas",
      "abbb", "avv"]
   end
+
+  it 'マッチしなかったものは結果には含まれないこと' do
+      article1 = Article.create(
+      title: "aas",
+      theme: "日記",
+      writing_date: "2017-02-28"
+      )
+
+    article2 = Article.create(
+      title: "abbb",
+      theme: "日記",
+      writing_date: "2017-02-16"
+      )
+
+    article3 = Article.create(
+      title: "avv",
+      theme: "日記",
+      writing_date: "2017-02-25"
+      )
+
+    article4 = Article.create(
+      title: "cccc",
+      theme: "日記",
+      writing_date: "2017-01-23"
+      )
+    expect(Article.by_title("J")).not_to include "cccc"
+  end
 end
 
