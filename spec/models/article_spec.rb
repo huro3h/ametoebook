@@ -101,7 +101,7 @@ describe Article do
       theme: "日記",
       writing_date: "2017-01-23"
       )
-    expect(Article.by_title("J")).not_to include "cccc"
+    expect(Article.by_title("a")).not_to include "cccc"
   end
 end
 
