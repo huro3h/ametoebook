@@ -9,8 +9,8 @@ class Article < ApplicationRecord
     where("title LIKE ?", "#{title}%").order(:title)
   end
 
-  def get_list(id)
-    url = 'http://ameblo.jp/' + id + '/entrylist.html'
+  def get_list(blogid)
+    url = 'http://ameblo.jp/' + blogid + '/entrylist.html'
     html = open(url) { |f| f.read }
     # p html
     doc = Nokogiri::HTML.parse(html, nil)
