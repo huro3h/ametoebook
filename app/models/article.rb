@@ -9,14 +9,17 @@ class Article < ApplicationRecord
     where("title LIKE ?", "#{title}%").order(:title)
   end
 
-  def get_list(blogid)
-    url = 'http://ameblo.jp/' + blogid + '/entrylist.html'
+  def get_list#(blogid)
+    url = 'http://ameblo.jp/sakenomi1730/entrylist.html'
+    # url = 'http://ameblo.jp/sakenomi1730/entrylist.html'
+    # url = 'http://ameblo.jp/' + blogid + '/entrylist.html'
     html = open(url) { |f| f.read }
     # p html
     doc = Nokogiri::HTML.parse(html, nil)
+    p doc
     doc.css(".contentTitleArea").each do |entry|
       p entry.css('h1').text
-      p entry.css('h1 a.contentTitle').text
+      # p entry.class('articleText').text
     end
   end
 
