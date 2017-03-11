@@ -16,10 +16,11 @@ class Article < ApplicationRecord
     html = open(url) { |f| f.read }
     # p html
     doc = Nokogiri::HTML.parse(html, nil)
-    p doc
+    # p doc
     doc.css(".contentTitleArea").each do |entry|
-      p entry.css('h1').text
-      # p entry.class('articleText').text
+      # binding.pry
+      p entry.css('a').text
+      p entry.css('a')[0][:href]
     end
   end
 
