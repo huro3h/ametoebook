@@ -1,5 +1,5 @@
 class Article < ApplicationRecord
-  validates :title, :theme, presence: true
+  validates :title, :writing_date, presence: true
   validates :title, uniqueness: true
 
   require 'open-uri'
@@ -16,11 +16,16 @@ class Article < ApplicationRecord
     html = open(url) { |f| f.read }
     # p html
     doc = Nokogiri::HTML.parse(html, nil)
+    tag = doc.xpath("//time")
     # p doc
+    p tag
     doc.css(".contentTitleArea").each do |entry|
       # binding.pry
-      p entry.css('a').text
-      p entry.css('a')[0][:href]
+      article = Article.new
+      article.title = entry.css('a').text.to_s
+      article.url = entry.css('a')[0][:href].to_s
+      article.writing_date = tag.first.children.to_s.to_datetime
+      article.save
     end
   end
 
