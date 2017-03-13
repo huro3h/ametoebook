@@ -20,7 +20,7 @@ class Article < ApplicationRecord
     # p doc
     p tag
     doc.css(".contentTitleArea").each do |entry|
-      # binding.pry
+      binding.pry
       article = Article.new
       article.title = entry.css('a').text.to_s
       article.url = entry.css('a')[0][:href].to_s
