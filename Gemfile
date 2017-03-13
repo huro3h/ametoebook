@@ -39,8 +39,9 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
-# for markdown notation using .js
-gem 'marked-rails'
+# for bootstrap
+# gem 'less-rails'
+# gem 'twitter-bootstrap-rails'
 
 group :development do
   gem 'capistrano-rails'
