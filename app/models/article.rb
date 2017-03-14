@@ -9,28 +9,22 @@ class Article < ApplicationRecord
     where("title LIKE ?", "#{title}%").order(:title)
   end
 
-  def get_list#(blogid)
-    url = 'http://ameblo.jp/sakenomi1730/entrylist.html'
+  def get_a#(blogid)
+    article = Article.new
     # url = 'http://ameblo.jp/sakenomi1730/entrylist.html'
     # url = 'http://ameblo.jp/' + blogid + '/entrylist.html'
+    url = 'http://ameblo.jp/sakenomi1730/'
     html = open(url) { |f| f.read }
-    # p html
     doc = Nokogiri::HTML.parse(html, nil)
-    tag = doc.xpath("//time")
     # p doc
-    p tag
-    doc.css(".contentTitleArea").each do |entry|
-      binding.pry
-      article = Article.new
-      article.title = entry.css('a').text.to_s
+    doc.css(".js-entryWrapper").each do |entry|
+      article.title = entry.css('h1').text.to_s.gsub(/(\s)/,"")
       article.url = entry.css('a')[0][:href].to_s
-      article.writing_date = tag.first.children.to_s.to_datetime
+      article.writing_date = entry.css('time').text.to_datetime
+      article.detail = entry.css('div.articleText').text.gsub(/(\s)/,"")
+      article.theme = entry.css('span.articleTheme').text.gsub(/テーマ：/,"")
+      binding.pry
       article.save
     end
   end
-
-  def get_article
-
-  end
-
 end
