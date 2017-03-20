@@ -1,5 +1,6 @@
 <h1>Articles#index</h1>
 <div id="content container">
+  <%= button_to "new", @get_a, :method => :get %>
   <% if Article.present? %>
     <ul style="list-style:none;">
     <% @articles.each do |article| %>
@@ -11,9 +12,3 @@
     </ul>
   <% end %>
 </div>
-
-<!-- <script>
-  console.log(marked('I am using __markdown__.'));
-  document.getElementById('content').innerHTML =
-      marked('# Marked in browser\n\nRendered by **marked**.');
-</script> -->

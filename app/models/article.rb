@@ -1,6 +1,6 @@
 class Article < ApplicationRecord
   validates :title, :writing_date, presence: true
-  validates :title, uniqueness: true
+  validates :title, :url, uniqueness: true
 
   require 'open-uri'
   require 'nokogiri'
@@ -11,8 +11,6 @@ class Article < ApplicationRecord
 
   def get_a#(blogid)
     article = Article.new
-    # url = 'http://ameblo.jp/sakenomi1730/entrylist.html'
-    # url = 'http://ameblo.jp/' + blogid + '/entrylist.html'
     url = 'http://ameblo.jp/sakenomi1730/'
     html = open(url) { |f| f.read }
     doc = Nokogiri::HTML.parse(html, nil)
