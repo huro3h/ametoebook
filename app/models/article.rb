@@ -23,7 +23,7 @@ class Article < ApplicationRecord
       article.writing_date = entry.css('time').text.to_datetime
       article.detail = entry.css('div.articleText').text.gsub(/(\s)/,"")
       article.theme = entry.css('span.articleTheme').text.gsub(/テーマ：/,"")
-      binding.pry
+      # binding.pry
       article.save
     end
   end
