@@ -1,13 +1,13 @@
 <h1>Articles#index</h1>
 <div id="content container">
   <% if Article.present? %>
-    <ul>
+    <ul style="list-style:none;">
+    <% @articles.each do |article| %>
       <li>
-      <% @articles.each do |article| %>
         <span><%= article.writing_date.strftime("%Y年%-m月%-d日") %></span>
         <a href="<%= article.url %>"><%= article.title %></a>
-      <% end %>
       </li>
+    <% end %>
     </ul>
   <% end %>
 </div>
