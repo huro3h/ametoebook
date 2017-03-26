@@ -45,8 +45,7 @@ gem 'rails-assets-backbone'
 gem 'rails-assets-lodash'
 
 # for bootstrap
-# gem 'less-rails'
-# gem 'twitter-bootstrap-rails'
+gem 'rails-assets-bootstrap', source: 'https://rails-assets.org'
 
 group :development do
   gem 'capistrano-rails'

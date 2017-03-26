@@ -11,6 +11,7 @@
 // about supported directives.
 //
 // turbolinks
+//= require bootstrap
 //= require jquery
 // jquery_ujs
 //= require underscore
