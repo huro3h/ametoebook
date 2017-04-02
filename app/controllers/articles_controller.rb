@@ -1,9 +1,9 @@
 class ArticlesController < ApplicationController
-  respond_to :json
+  # respond_to :json
 
   def index
     @articles = Article.all.order(writing_date: :desc)
-    render json: @articles
+    # render json: @articles
   end
 
   def home
@@ -13,5 +13,10 @@ class ArticlesController < ApplicationController
   end
 
   def new
+  end
+
+  def create
+    article = Article.new
+    article.get_a
   end
 end

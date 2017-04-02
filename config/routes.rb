@@ -6,10 +6,10 @@ Rails.application.routes.draw do
     resources :articles, only: :index
   end
 
-  # resources :articles
+  root to: 'articles#index'
+  # resources :articles, defaults: { format: 'json' }, only: %i(index show)
 
-  root to: 'articles#home'
-  resources :articles, defaults: { format: 'json' }, only: %i(index show create)
+  get 'create' => 'articles#create'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

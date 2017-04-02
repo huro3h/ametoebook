@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-jQuery ->
-  articles = new Articles()
-  articles.fetch()
-  new ArticlesView(collection: articles)
+# jQuery ->
+#   articles = new Articles()
+#   articles.fetch()
+#   new ArticlesView(collection: articles)
