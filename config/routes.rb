@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   root to: 'articles#index'
+    get "articles/:id" => 'articles#show', as: :show
   # resources :articles, defaults: { format: 'json' }, only: %i(index show)
 
   get 'create' => 'articles#create'
