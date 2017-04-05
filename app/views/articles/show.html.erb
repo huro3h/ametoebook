@@ -1,2 +1,19 @@
-<h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+<div class="container">
+  <div id="content" class="container col-sm-5 panel panel-default ">
+    <div style="float:left">
+      <h2><%= @article.title %></h2>
+    </div>
+    <div style="clear:both">
+      <p><%= @article.detail %></p>
+    </div>
+
+    <h4>記事へのコメント</h4>
+    <%= @article.comments.each do |comment| %>
+      <span><%= comment.content %></span>
+    <% end %>
+
+    <div style="float:right">
+      <%= link_to '記事一覧に戻る',root_path %>
+    </div>
+  </div>
+</div>

@@ -7,7 +7,9 @@
   </head>
 
   <body>
-    <%= yield %>
-    <%=  javascript_include_tag 'application' %>
+    <div class=" container <%= controller_name %> <%= action_name %> ">
+      <%= yield %>
+      <%=  javascript_include_tag 'application' %>
+    </div>
   </body>
 </html>

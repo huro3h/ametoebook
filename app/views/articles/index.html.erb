@@ -1,12 +1,13 @@
-<h1>Articles#index</h1>
-<div id="content" class="container col-sm-5 panel panel-default ">
+<div id="content" class="col-sm-5 panel panel-default">
   <% if Article.present? %>
     <ul style="list-style:none;">
     <% @articles.each do |article| %>
       <li>
         <span><%= article.writing_date.strftime("%Y年%-m月%-d日") %></span>
-        <a href="<%= article.url %>"><%= article.title %></a><br>
-        <span><%= article.detail %></span><br><hr>
+        <span><a href="<%= article.url %>"><%= article.title %></a></span><br>
+        <span><%= "記事ID : #{article.id}" %></span>
+        <span><%= link_to '詳細へ', show_path(article) %></span>
+        <br><br>
       </li>
     <% end %>
     </ul>
