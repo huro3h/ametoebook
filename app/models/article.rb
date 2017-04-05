@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+  has_many :comments
+
   validates :title, :writing_date, presence: true
   validates :title, :url, uniqueness: true
 
