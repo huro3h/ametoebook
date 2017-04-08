@@ -4,14 +4,18 @@
       <h2><%= @article.title %></h2>
     </div>
     <div style="clear:both">
-      <p><%= @article.detail %></p>
+      <p><%= @article.detail.truncate(35) %></p>
+      <p><%= truncate(@article.detail, length: 35) %></p>
     </div>
 
     <h4>記事へのコメント</h4>
-    <%= @article.comments.each do |comment| %>
-      <span><%= comment.content %></span>
+    <% if @article.comments.present? %>
+      <%= @article.comments.each do |comment| %>
+        <span><%= comment.content %></span>
+      <% end %>
+    <% else %>
+      <p>この記事へのコメントはまだありません</p>
     <% end %>
-
     <div style="float:right">
       <%= link_to '記事一覧に戻る',root_path %>
     </div>
