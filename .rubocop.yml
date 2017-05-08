@@ -1,6 +1,3 @@
-Rails:
-  Enabled: true
-
 # Line is too long.
 Metrics/LineLength:
   Enabled: false
