@@ -9,8 +9,10 @@
 
     <h4>記事へのコメント</h4>
     <% if @article.comments.present? %>
-      <%= @article.comments.each do |comment| %>
-        <span><%= comment.content %></span>
+      <% @article.comments.each do |comment| %>
+        <span><%= comment.id %></span><br>
+        <span><%= comment.content %></span><br>
+        <span><%= comment.created_at %></span><br>
       <% end %>
     <% else %>
       <p>この記事へのコメントはまだありません</p>
