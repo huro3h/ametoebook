@@ -40,10 +40,6 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
-# fof backbone.js
-gem 'rails-assets-backbone'
-gem 'rails-assets-lodash'
-
 # for bootstrap
 gem 'rails-assets-bootstrap', source: 'https://rails-assets.org'
 
@@ -53,7 +49,6 @@ end
 
 group :development, :test do
   gem 'capybara'
-  gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'pry-rails'
