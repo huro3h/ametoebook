@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # resources :articles, defaults: { format: 'json' }, only: %i(index show)
 
   get 'create' => 'articles#create'
+  get 'home' => 'articles#home'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
