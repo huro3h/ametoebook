@@ -14,9 +14,9 @@
 //= require bootstrap
 //= require jquery
 // jquery_ujs
-//= require underscore
-//= require backbone
+// require underscore
+// require backbone
 // lodash
-//= require ./backbonejs/_setting
-//= require_tree ./backbonejs
+// require ./backbonejs/_setting
+// require_tree ./backbonejs
 //= require articles
