@@ -12,7 +12,14 @@ class Article < ApplicationRecord
   end
 
   def get_urls(page_no="")
-    urls = "http://ameblo.jp/sakenomi1730/entrylist#{page_no}.html"
+    urls = page_no == ""  ? "http://ameblo.jp/sakenomi1730/entrylist.html" : "http://ameblo.jp/sakenomi1730/entrylist-#{page_no}.html"
+    html = open(urls) { |f| f.read }
+    doc = Nokogiri::HTML.parse(html, nil)
+    # binding.pry
+    doc.css(".contentTitleArea").each do |entry|
+      puts entry.css('a')[0][:href].to_s
+    end
+    page_no == "" ? "1ページ目処理完了" : "#{page_no}ページ目処理完了"
   end
 
 
