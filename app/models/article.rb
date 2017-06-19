@@ -11,9 +11,14 @@ class Article < ApplicationRecord
     where("title LIKE ?", "#{title}%").order(:title)
   end
 
-  def get_a#(blogid)
+  def get_urls(page_no="")
+    urls = "http://ameblo.jp/sakenomi1730/entrylist#{page_no}.html"
+  end
+
+
+  def get_a(blog_url)
     article = Article.new
-    url = 'http://ameblo.jp/sakenomi1730/'
+    url = blog_url
     html = open(url) { |f| f.read }
     doc = Nokogiri::HTML.parse(html, nil)
     doc.css(".js-entryWrapper").each do |entry|
