@@ -11,15 +11,30 @@ class Article < ApplicationRecord
     where("title LIKE ?", "#{title}%").order(:title)
   end
 
-  def get_urls(page_no="")
+  def get_urls(page_no = "")
+    i = 1
     urls = page_no == ""  ? "http://ameblo.jp/sakenomi1730/entrylist.html" : "http://ameblo.jp/sakenomi1730/entrylist-#{page_no}.html"
     html = open(urls) { |f| f.read }
     doc = Nokogiri::HTML.parse(html, nil)
     # binding.pry
     doc.css(".contentTitleArea").each do |entry|
-      puts entry.css('a')[0][:href].to_s
+      blog_url = entry.css('a')[0][:href].to_s
+      get_a(blog_url)
+      puts "#{page_no} - #{i}"
+      i += 1
+      sleep(1)
     end
     page_no == "" ? "1ページ目処理完了" : "#{page_no}ページ目処理完了"
+    # 最後のページまで繰り返し
+    # if page_no < 97
+    #   get_urls(page_no.to_i + 1)
+    # end
+  end
+
+  def check_amember_only(page_no = "")
+    urls = page_no == ""  ? "http://ameblo.jp/sakenomi1730/entrylist.html" : "http://ameblo.jp/sakenomi1730/entrylist-#{page_no}.html"
+    html = open(urls) { |f| f.read }
+    doc = Nokogiri::HTML.parse(html, nil)
   end
 
 
