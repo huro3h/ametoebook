@@ -7,10 +7,9 @@ Rails.application.routes.draw do
   end
 
   root to: 'articles#index'
-    get "articles/:id" => 'articles#show', as: :show
-  # resources :articles, defaults: { format: 'json' }, only: %i(index show)
+  get "articles/:id" => 'articles#show', as: :show
 
-  get 'create' => 'articles#create'
+  get 'new' => 'articles#new'
   get 'home' => 'articles#home'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
