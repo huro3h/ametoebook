@@ -36,6 +36,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 ### additional_gem ###
+gem 'active_decorator'
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
